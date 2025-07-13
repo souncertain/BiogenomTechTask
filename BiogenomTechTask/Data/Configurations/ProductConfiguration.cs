@@ -1,4 +1,4 @@
-﻿using BiogenomTechTask.Entities;
+﻿using BiogenomTechTask.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

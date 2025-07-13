@@ -1,5 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BiogenomTechTask.BL.Mapping;
+using BiogenomTechTask.BL.Services;
+using BiogenomTechTask.BL.Services.Interfaces;
 using BiogenomTechTask.Data;
+using BiogenomTechTask.Data.Repositories;
+using BiogenomTechTask.Data.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace BiogenomTechTask
 {
@@ -14,8 +19,17 @@ namespace BiogenomTechTask
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(cfg =>
+            {
+                cfg.AddProfile(new MappingConfig());
+            });
+
             services.AddDbContext<AppDbContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(Configuration.GetConnectionString("PostgresConnection")));
+
+            services.AddScoped<IReportRepository, ReportRepository>();
+
+            services.AddScoped<IReportService, ReportService>();    
 
             services.AddControllers();
 

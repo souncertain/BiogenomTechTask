@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BiogenomTechTask.Entities
+namespace BiogenomTechTask.Domain.Entities
 {
     public enum Gender
     {

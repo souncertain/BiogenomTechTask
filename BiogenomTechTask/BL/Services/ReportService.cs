@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BiogenomTechTask.BL.Services.Interfaces;
 using BiogenomTechTask.Data.Repositories.Interfaces;
-using BiogenomTechTask.Domain.Entities;
 using BiogenomTechTask.Domain.Models;
 
 namespace BiogenomTechTask.BL.Services

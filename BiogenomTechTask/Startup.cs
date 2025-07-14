@@ -41,6 +41,9 @@ namespace BiogenomTechTask
             app.UseRouting();
             app.UseAuthorization();
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

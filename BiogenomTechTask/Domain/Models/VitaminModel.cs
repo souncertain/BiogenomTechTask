@@ -1,4 +1,6 @@
-﻿namespace BiogenomTechTask.Domain.Models
+﻿using BiogenomTechTask.Domain.Entities;
+
+namespace BiogenomTechTask.Domain.Models
 {
     public class VitaminModel
     {
@@ -8,5 +10,6 @@
         public float DailyUserVolume { get; set; }
         public string EffectsOnTheBody { get; set; }
         public string NutrionRecommendations { get; set; }
+        public virtual List<ProductModel> Products { get; set; }
     }
 }

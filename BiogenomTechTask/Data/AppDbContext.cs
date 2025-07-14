@@ -16,6 +16,13 @@ namespace BiogenomTechTask.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Product>().ToTable(nameof(Product));
+            modelBuilder.Entity<Report>().ToTable(nameof(Report));
+            modelBuilder.Entity<User>().ToTable(nameof(User));
+            modelBuilder.Entity<Vitamin>().ToTable(nameof(Vitamin));
+            modelBuilder.Entity<VitaminProduct>().ToTable(nameof(VitaminProduct));
+            modelBuilder.Entity<VitaminReport>().ToTable(nameof(VitaminReport));
+
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new ReportConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());

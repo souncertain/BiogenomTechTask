@@ -11,15 +11,12 @@ namespace BiogenomTechTask.BL.Mapping
             CreateMap<Product, ProductModel>()
                 .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.Note, opt => opt.MapFrom(src => src.Note))
-                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
-                .ForMember(dest => dest.VitaminsId, opt => opt.MapFrom(src => src.VitaminProducts
-                    .Select(p => p.VitaminId)));
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description));
 
             CreateMap<Report, ReportModel>()
                 .ForMember(dest => dest.Created, opt => opt.MapFrom(src => src.Created))
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
-                .ForMember(dest => dest.VitaminsId, opt => opt.MapFrom(src => src.VitaminReports
-                    .Select(v => v.IdVitamin)));
+                .ForMember(dest => dest.Vitamins, opt => opt.MapFrom(src => src.VitaminReports.Select(vr => vr.Vitamin)));
 
             CreateMap<User, UserModel>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
@@ -39,7 +36,8 @@ namespace BiogenomTechTask.BL.Mapping
                 .ForMember(dest => dest.DailyStandart, opt => opt.MapFrom(src => src.DailyStandart))
                 .ForMember(dest => dest.DailyUserVolume, opt => opt.MapFrom(src => src.DailyUserVolume))
                 .ForMember(dest => dest.EffectsOnTheBody, opt => opt.MapFrom(src => src.EffectsOnTheBody))
-                .ForMember(dest => dest.NutrionRecommendations, opt => opt.MapFrom(src => src.NutrionRecommendations));
+                .ForMember(dest => dest.NutrionRecommendations, opt => opt.MapFrom(src => src.NutrionRecommendations))
+                .ForMember(dest => dest.Products, opt => opt.MapFrom(src => src.VitaminProduct.Select(vp => vp.Product)));
         }
     }
 }

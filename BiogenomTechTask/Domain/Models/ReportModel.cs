@@ -4,6 +4,6 @@
     {
         public DateOnly Created { get; set; }
         public Guid UserId { get; set; }
-        public virtual List<Guid> VitaminsId { get; set; }
+        public virtual List<VitaminModel> Vitamins { get; set; }
     }
 }
